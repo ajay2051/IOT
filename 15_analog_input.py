@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import 15_ADCO834
+import ADCO834 # this is library
 import time
 
 GPIO.setmode(GPIO.BCM)

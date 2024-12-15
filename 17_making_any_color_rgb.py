@@ -1,3 +1,5 @@
+# LESSON 17 making any color
+
 import RPi.GPIO as GPIO
 import ADC0834
 import time

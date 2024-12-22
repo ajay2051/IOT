@@ -1,4 +1,4 @@
-# LESSON 27 Active Passive Buzzers
+# LESSON 27 Active Buzzers
 
 import time
 import RPi.GPIO as GPIO

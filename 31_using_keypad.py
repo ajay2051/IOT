@@ -1,4 +1,4 @@
-import sys
+# LESSON 31 using keypad
 
 import RPi.GPIO as GPIO
 import time

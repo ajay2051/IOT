@@ -104,3 +104,17 @@ class Question(BaseModel):
 
     def __str__(self):
         return self.title
+
+
+class TestPaperCategory(BaseModel):
+    name = models.CharField(max_length=100,)
+    description = models.TextField(blank=True, null=True)
+    parent = models.ForeignKey("self", related_name="children", on_delete=models.CASCADE, blank=True, null=True)
+    owner = models.ForeignKey(AuthUser, on_delete=models.SET_NULL, blank=True, null=True)
+
+    class Meta:
+        db_table = 'test_paper_category'
+        verbose_name = 'Test Paper Category'
+
+    def __str__(self):
+        return self.name

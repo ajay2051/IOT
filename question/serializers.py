@@ -4,7 +4,7 @@ import json
 from rest_framework import serializers
 
 from lecture.models import ResourceFile
-from question.models import Question
+from question.models import Question, TestPaperCategory
 
 
 class ResourceFileQuestionSerializer(serializers.ModelSerializer):
@@ -321,3 +321,22 @@ class QuestionSerializer(serializers.ModelSerializer):
             self.get_url(item) for item in instance.answer_explanation_image.all()
         ] if instance.answer_explanation_image else None
         return data
+
+
+class TestPaperCategorySerializer(serializers.ModelSerializer):
+    children = serializers.SerializerMethodField()
+
+    class Meta:
+        model = TestPaperCategory
+        fields = ['id', 'name', 'description', 'parent', 'owner', 'created_at', 'updated_at', 'is_deleted', 'is_starred', 'extras', 'children']
+
+    def get_children(self, obj):
+        if obj.children:
+            return TestPaperCategorySerializer(obj.children.filter(is_deleted=False), many=True).data
+        return None
+
+if instance.test_category:
+    category_serializer = TestPaperCategorySerializer(instance.test_category)
+    data['test_category'] = category_serializer.data
+else:
+    data['test_category'] = None

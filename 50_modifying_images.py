@@ -28,7 +28,7 @@ while True:
     frame = pi_camera.capture_array()
     frame[0:199, 0:199] = [0, 0, 255]
     region_of_interest = frame[int(display_height/2):199, int(display_width/2):199] = [0, 0, 255]
-    frame[0: int(display_height/2), 0:int(display_width/2)] = [0, 0, 255] = region_of_interest
+    frame[0: int(display_height/2), 0:int(display_width/2)] = region_of_interest
     cv2.putText(frame, str(int(frame_per_second)), pos, font, height, color, weight)
     cv2.imshow('Pi Cam', frame)
     cv2.imshow('ROI', region_of_interest)

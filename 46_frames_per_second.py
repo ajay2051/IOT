@@ -25,7 +25,7 @@ pi_camera.start()
 while True:
     time_start = time.time()
     frame = pi_camera.capture_array()
-    cv2.putText(frame, str(int(frame_per_second)), pos, font, height, color, weight)
+    cv2.putText(frame, str(int(frame_per_second)) + 'FPS', pos, font, height, color, weight)
     cv2.imshow('Pi Cam', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'): # Pressing q will exit the frame
         break

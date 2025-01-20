@@ -1,4 +1,4 @@
-# LESSON 68 Using the MFRC522 RFID Module and Tag on Raspberry Pi
+# LESSON 68: Using the MFRC522 RFID Module and Tag on Raspberry Pi
 
 import time
 from mfrc522 import SimpleMFRC522
